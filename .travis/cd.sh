@@ -10,9 +10,13 @@ if [ -z "$DOCKER_USERNAME" ] || [ -z "$DOCKER_PASSWORD" ]; then
   echo "No docker credentials configured, unable to publish builds" >&2; exit 1
 fi
 
-tag="$DOCKER_USERNAME/clausieserver:$TRAVIS_TAG"
+current_tag="$DOCKER_USERNAME/clausieserver:$TRAVIS_TAG"
+latest_tag="$DOCKER_USERNAME/clausieserver:latest"
 context="$(dirname $0)/.."
 
-docker build --tag "$tag" "$context"
+docker build --tag "$current_tag" "$context"
 docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD"
-docker push "$tag"
+docker push "$current_tag"
+
+docker tag "$current_tag" "$latest_tag"
+docker push "$latest_tag"
