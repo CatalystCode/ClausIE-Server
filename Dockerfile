@@ -1,18 +1,19 @@
 FROM java:8
 
-RUN apt-get update \
-  && apt-get install -y maven
-
 WORKDIR /app
 
-ADD repo /app/repo
 ADD pom.xml /app/pom.xml
-RUN mvn dependency:resolve && mvn verify
-
+ADD repo /app/repo
 ADD src /app/src
-RUN mvn package \
+
+RUN apt-get -qq update \
+  && apt-get -qq install -y maven \
+  && mvn dependency:resolve \
+  && mvn verify \
+  && mvn package \
   && mv /app/target/clausieserver-jar-with-dependencies.jar /app/clausieserver.jar \
-  && rm -rf /app/target
+  && rm -rf /app/target /app/repo /app/src /app/pom.xml \
+  && apt-get -qq remove -y maven
 
 ENV JAVA_XMX="2G"
 
