@@ -3,6 +3,15 @@
 [![CI status](https://travis-ci.org/c-w/ClausIE-Server.svg?branch=master)](https://travis-ci.org/c-w/ClausIE-Server)
 [![Docker status](https://img.shields.io/docker/pulls/cwolff/clausieserver.svg)](https://hub.docker.com/r/cwolff/clausieserver/)
 
+## What's this?
+
+This repository contains a dockerized web service to quickly get started with
+[Open Information Extraction (OpenIE)](https://en.wikipedia.org/wiki/Open_information_extraction).
+
+The web service is implemented in [Spark Java](http://sparkjava.com/) and wraps
+the [ClausIE OpenIE tool](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/software/clausie/)
+created by the Max Planck Institute.
+
 ## Usage
 
 First, run the ClausIE-Server via docker:
