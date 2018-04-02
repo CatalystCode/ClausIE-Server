@@ -12,7 +12,7 @@ docker run -d -p 4567:4567 cwolff/clausieserver
 ```
 
 Second, prepare an input file with text to process via OpenIE. The file
-should have one sentence per line.
+should have one sentence per line:
 
 ```txt
 AE remained in Princeton until his death.
