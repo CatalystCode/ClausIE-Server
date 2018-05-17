@@ -5,3 +5,6 @@ target/
 .project
 .classpath
 .settings/
+.vscode/
+.factorypath
+.DS_Store
