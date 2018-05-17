@@ -28,13 +28,20 @@ class ClausIEJsonlProcessor {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(instream))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                Collection<ClausIERelation> relations = parser.parse(line);
-                for (ClausIERelation relation : relations) {
-                    String json = formatter.format(relation);
-                    outstream.write(json.getBytes(UTF_8));
-                    outstream.write(NEWLINE_BYTES);
+            try{
+                while ((line = reader.readLine()) != null) {
+                    Collection<ClausIERelation> relations = parser.parse(line);
+                    if (relations != null) {
+                        for (ClausIERelation relation : relations) {
+                            String json = formatter.format(relation);
+                            outstream.write(json.getBytes(UTF_8));
+                            outstream.write(NEWLINE_BYTES);
+                        }
+                    }
                 }
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
