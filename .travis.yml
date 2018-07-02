@@ -9,5 +9,5 @@ deploy:
   - provider: script
     script: .travis/cd.sh
     on:
-      repo: c-w/ClausIE-Server
+      repo: CatalystCode/ClausIE-Server
       tags: true
