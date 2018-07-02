@@ -1,6 +1,6 @@
 # ClausIE-Server
 
-[![CI status](https://travis-ci.org/c-w/ClausIE-Server.svg?branch=master)](https://travis-ci.org/c-w/ClausIE-Server)
+[![CI status](https://travis-ci.org/CatalystCode/ClausIE-Server.svg?branch=master)](https://travis-ci.org/CatalystCode/ClausIE-Server)
 [![Docker status](https://img.shields.io/docker/pulls/cwolff/clausieserver.svg)](https://hub.docker.com/r/cwolff/clausieserver/)
 
 ## What's this?
